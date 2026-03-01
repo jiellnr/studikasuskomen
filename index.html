@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studi Kasus Komentar Konten YouTube Ramadhan — Zilvia Nur Rahma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO HEADER -->
+<header class="hero">
+  
+  <h1>Studi Kasus Analisis Komentar Novel Keigo Higashino</h1>
+  <p>Klasifikasi komentar menjadi positif, negatif, dan netral secara otomatis.</p>
+  <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+  <button class="cta" onclick="scrollToAnalyzer()">Mulai Analisis</button>
+</header>
+
+<div class="divider"></div>
+
+<!-- ANALYZER -->
+<section class="analyzer" id="analyzer">
+  <div class="analyzer-container">
+
+    <!-- VIDEO -->
+    <div class="video-box">
+  <h3 class="video-label">Video yang Dianalisis</h3>
+  <div class="video-preview">
+    <a href="https://youtu.be/W-iChpgVeIQ" target="_blank">
+      <img src="https://img.youtube.com/vi/W-iChpgVeIQ/maxresdefault.jpg" alt="Preview Video" />
+      <span class="play-btn"></span>
+    </a>
+  </div>
+  <div class="video-info">
+    <h4 class="video-title">Urutan Baca Novel Keigo Higashino</h4>
+    <p class="video-channel">Channel: @KanayaSophia</p>
+    <p class="video-date">Diunggah: 8 April 2022</p>
+  </div>
+</div>
+
+    <!-- STATISTIK -->
+    <div class="statistik">
+      <div class="stat-card positif">
+        <h3 id="jumlahPositif">0</h3>
+        <p>Positif</p>
+        <div class="progress-bar" id="barPositif"></div>
+      </div>
+      <div class="stat-card negatif">
+        <h3 id="jumlahNegatif">0</h3>
+        <p>Negatif</p>
+        <div class="progress-bar" id="barNegatif"></div>
+      </div>
+      <div class="stat-card netral">
+        <h3 id="jumlahNetral">0</h3>
+        <p>Netral</p>
+        <div class="progress-bar" id="barNetral"></div>
+      </div>
+      <canvas id="sentimentChart" height="120"></canvas>
+    </div>
+
+    <!-- FORM KOMENTAR -->
+    <div class="comment-input">
+      <input type="text" id="userComment" placeholder="Tulis komentar..." />
+      <button type="button" onclick="submitComment()">Kirim</button>
+    </div>
+    <p id="commentCategory"></p>
+
+    <!-- FILTER -->
+<div class="filter-row">
+
+  <div class="button-group">
+  <button data-filter="semua">Semua</button>
+  <button data-filter="positif">☺️</button>
+  <button data-filter="negatif">😡</button>
+  <button data-filter="netral">😇</button>    
+  </div>
+
+  <div class="sorting">
+    <select id="sortSelect" onchange="applySorting()">
+      <option value="newest">Terbaru</option>
+      <option value="oldest">Terlama</option>
+      <option value="az">A - Z</option>
+      <option value="za">Z - A</option>
+    </select>
+  </div>
+
+</div>
+    
+    <div class="search-box">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Cari komentar..."
+    oninput="applySearch()"
+  >
+</div>
+    
+    <!-- LIST KOMENTAR -->
+    <ul id="output"></ul>
+
+  </div>
+</section>
+
+<footer>© 2026 Zilvia Nur Rahma – X RPL 1 — Studi Kasus</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  <div id="toast"></div>
+  
+</div>
+</body>
+</html>
